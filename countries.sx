@@ -1,0 +1,80 @@
+(def-ask-system :countries "Countries of the World")
+
+;;------------------------------------------------------------------
+;; define a set of possible CAC (conversational associative
+;; categories) links
+;;------------------------------------------------------------------
+
+(def-cac-link :countries :specifics "SPECIFICS")
+(def-cac-link :countries :context "CONTEXT")
+(def-cac-link :countries :opportunities "OPPORTUNTIES")
+(def-cac-link :countries :warnings "WARNINGS")
+(def-cac-link :countries :causes "PREVIOUS EVENTS AND CAUSES")
+(def-cac-link :countries :results "LATER EVENTS AND RESULTS")
+(def-cac-link :countries :alternatives "ALTERNATIVES")
+(def-cac-link :countries :analogies "ANALOGIES AND SIMILARTIES")
+
+;;------------------------------------------------------------------
+;; define questions
+;;------------------------------------------------------------------
+
+(def-question :countries 0 :specifics "Tell me about China.")
+(def-question :countries 1 :specifics "Tell me about Kenya.")
+(def-question :countries 2 :analogies "What other countries are there?")
+(def-question :countries 3 :specifics "What is unique about Kenya?")
+(def-question :countries 4 :specifics "What is unique about China?")
+(def-question :countries 5 :results "Does this growth cause any problems for Kenya?")
+(def-question :countries 6 :causes "What caused Kenya's ecomonic problems?")
+(def-question :countries 7 :analogies "Are there other countries beside China with population problems?")
+(def-question :countries 8 :analogies "Are there other countries beside Kenya with population problems?")
+
+;;------------------------------------------------------------------
+;; Define stories
+;;------------------------------------------------------------------
+
+(def-story :countries "Welcome to the Countries Ask System"
+  (0 1)
+  (2)
+  "Welcome to the Countries Ask System. Choose from one of the countries below.")
+
+(def-story :countries 0
+  "Kenya: Introduction"
+  (3 2)
+  (1)
+  "Kenya is a country in East Africa ...")
+
+(def-story :countries 1
+  "PRC: Introduction"
+  (2 4)
+  (0)
+  "China is a country in Asia ...")
+
+(def-story :countries 2
+  "Kenya's Population Problem"
+  (5 8)
+  (7 6)
+  "In the early 1980's, it was estimated that Kenya's population was growing at the rate of about 4 percent a year, one of the highest in the world.")
+
+(def-story :countries 3
+  "Kenya's Economic Problem"
+  (9)
+  (5 3)
+  "Kenya's economy is severely strained. ")
+
+(def-story :countries 4
+  "China's Population Problem"
+  (7)
+  (4 8)
+  "The People's Republic of China has the largest population of any country on earth.")
+
+
+
+
+
+
+
+
+
+
+
+
